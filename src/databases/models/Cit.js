@@ -1,16 +1,16 @@
 import Sequelize, { Model } from 'sequelize';
 
-class City extends Model {
+class Cit extends Model {
   static init(sequelize) {
     super.init(
       {
         firstName: Sequelize.STRING,
       },
-      { sequelize }
+      { sequelize, timestamps: true, underscored: false }
     );
 
     return this;
   }
 }
 
-export default City;
+export default Cit;

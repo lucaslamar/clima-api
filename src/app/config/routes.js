@@ -1,9 +1,11 @@
 import { Router } from 'express';
 
-import UserController from '@/app/controllers/UserController';
+import CityController from '@/app/controllers/CityController';
 
 const routes = new Router();
 
-routes.get('/api/v1/users', UserController.index);
+
+routes.get('/api/v1/city', CityController.index);
+routes.post('/api/v1/city', CityController.create);
 
 export default routes;
