@@ -18,6 +18,10 @@ Execute os seguintes passos para rodar o projeto no seu **unix**
 - Configure o seu arquivo .env
 - Execute `docker-compose up` para rodar o projeto
 
+## Rotas
+- GET: /api/v1/city
+- POST: /api/v1/city
+
 
 ## Histórico de lançamentos
 

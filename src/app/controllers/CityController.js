@@ -6,7 +6,7 @@ import { BadRequest } from '@/app/config/errors';
 class CityController {
     async index(req, res) {
         const { page = 1 } = req.query;
-        const { items, total } = await CityService.getAllcitys(req.query);
+        const { items, total } = await CityService.getAllCities(req.query);
         return res.json({ items, total, page: parseInt(page, 10) });
     }
 
@@ -18,7 +18,7 @@ class CityController {
         }})
 
         if (ifCityExists) {
-          await CityService.createOng(req.body);
+          await CityService.createCity(req.body);
           return res.status(201).json(ifCityExists.data);
        }
 
