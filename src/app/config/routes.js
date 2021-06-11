@@ -1,9 +1,13 @@
 import { Router } from 'express';
 
-import UserController from '@/app/controllers/UserController';
+import NewCity from '@/app/utils/validators/City/new';
+
+import CityController from '@/app/controllers/CityController';
 
 const routes = new Router();
 
-routes.get('/api/v1/users', UserController.index);
+
+routes.get('/api/v1/city', CityController.index);
+routes.post('/api/v1/city', [NewCity], CityController.create);
 
 export default routes;

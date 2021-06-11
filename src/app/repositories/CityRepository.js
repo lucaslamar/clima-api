@@ -1,7 +1,7 @@
 import { Op } from 'sequelize';
-import User from '@/databases/models/User';
+import City from '@/databases/models/Cit';
 
-class UserRepository {
+class CityRepository {
     async all({ page = 1 }) {
         const where = {};
         where[Op.and] = [];
@@ -13,7 +13,7 @@ class UserRepository {
         };
 
         const limit = 10;
-        const { rows: items, count: total } = await User.findAndCountAll(
+        const { rows: items, count: total } = await City.findAndCountAll(
             this.paginate(query, page, limit)
         );
 
@@ -27,6 +27,13 @@ class UserRepository {
             offset: (page - 1) * limit,
         };
     }
+
+    async create(cityInfo) {
+      const city = await City.create(cityInfo);
+      return city;
+  }
+
+
 }
 
-export default new UserRepository();
+export default new CityRepository();

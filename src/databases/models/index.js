@@ -1,9 +1,10 @@
 /* eslint-disable class-methods-use-this */
 import Sequelize from 'sequelize';
 import databaseConfig from '@/config/database';
-import User from './User';
+import Cit from './Cit';
 
-const models = [User];
+
+const models = [Cit];
 
 class Database {
     constructor() {
