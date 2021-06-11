@@ -1,4 +1,7 @@
 import CityService from '@/app/services/City';
+import { api } from '@/config/api/api';
+import { BadRequest } from '@/app/config/errors';
+
 
 class CityController {
     async index(req, res) {
@@ -8,10 +11,21 @@ class CityController {
     }
 
     async create(req, res) {
-        const city = await CityService.createOng(req.body);
-        return res.status(201).json(city);
-    }
+      try {
+        const ifCityExists = await api.get(`/data/2.5/weather`, { params: {
+          q:  req.body.firstName,
+          appid: process.env.APP_ID
+        }})
 
+        if (ifCityExists) {
+          await CityService.createOng(req.body);
+          return res.status(201).json(ifCityExists.data);
+       }
+
+      } catch (error) {
+        throw new BadRequest(error);
+      }
+    }
 }
 
 export default new CityController();
