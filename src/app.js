@@ -1,5 +1,6 @@
 import './config/moduleAliasConfig';
 import 'dotenv/config';
+import cors from 'cors';
 import express from 'express';
 import 'express-async-errors';
 // import session from 'express-session';
@@ -24,6 +25,12 @@ class App {
     }
 
     middlewares() {
+        this.server.use(
+            cors({
+                origin: '*',
+                optionsSuccessStatus: 200,
+            })
+        );
         this.server.use(express.json());
         // this.server.use(
         //     session({
