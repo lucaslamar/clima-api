@@ -8,7 +8,7 @@ OS X & Linux:
 
  ## Pre Requisitos
 
- Instalar Docker e Docker Compose
+ Instalar Node.Js
 
  ## Configuração para Desenvolvimento
 Execute os seguintes passos para rodar o projeto no seu **unix**
@@ -16,11 +16,7 @@ Execute os seguintes passos para rodar o projeto no seu **unix**
 - Faça o clone do projeto
 - Copie o .env.example criando o .env
 - Configure o seu arquivo .env
-- Execute `docker-compose up` para rodar o projeto
-
-## Rotas
-- GET: /api/v1/city
-- POST: /api/v1/city
+- Execute `start:dev` para rodar o projeto
 
 
 ## Histórico de lançamentos
